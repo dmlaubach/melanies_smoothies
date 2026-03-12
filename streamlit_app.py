@@ -2,7 +2,8 @@
 import streamlit as st
 #from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
-import requests  
+import requests 
+import pandas as pd
 
 # Write directly to the app.
 st.title(":cup_with_straw: Customize Your Smoothie :cup_with_straw:")
@@ -55,7 +56,7 @@ if ingredients_list:
     time_to_insert = st.button('Submit Order')
     if time_to_insert:
         session.sql(my_insert_stmt).collect()
-    #st.success(f'Your Smoothie is ordered {name_on_order}'!', icon="✅")
+    st.success(f'Your Smoothie is ordered {name_on_order}'!', icon="✅")
     st.success('Your Smoothie is ordered, ' + name_on_order + '!', icon="✅")
 
 
